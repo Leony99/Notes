@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #01</h1>
+    <div id='conteudo1'></div>
+    <div id='conteudo2'></div>
+    <div id='conteudo3'>
+        <p>abcd</p>
+    </div>
+    <p id="conteudo4">paragraph</p>
+    <p id="conteudo5">paragraph</p>
+    <p id="conteudo6">paragraph</p>
+
+    <script>
+        //.append/.prepend - Add html to selected element
+        $('#conteudo1').append('<p>1</p>');
+        $('#conteudo2').append([
+            $('<li>arroz</li>'),
+            $('<li>feijão</li>'),
+            $('<li>carne</li>')
+        ]);
+        $('#conteudo2').prepend('<li>soja</li>');
+
+        $('<p>2</p>').appendTo('#conteudo1');
+        $('<p>0</p>').prependTo('#conteudo1');
+
+        //.before/.after - Add html before/after selected element
+        $('#conteudo2').before('<p>New element</p>');
+        $('#conteudo2').after('<p>New element</p>');
+
+        $('<p>New element</p>').insertBefore('#conteudo2');
+        $('<p>New element</p>').insertAfter('#conteudo2');
+
+        //.html - Replace the content of selected element
+        $('#conteudo3').html('<p>lorem ipsum</p>');
+        //.text - Replace the content of selected element as a text
+        $('#conteudo3').text('<p>lorem ipsum</p>');
+
+        //.replaceWith - Replace the selected element
+        $('#conteudo3').replaceWith('<div id="replaced"></div>');
+        //.replaceAll - Replace multiple elements
+        $('<div id="replacedAgain"></div>').replaceAll('#replaced');
+
+        //.wrap - Wrap an element
+        $('#conteudo4').wrap('<div>');
+        //.wrapAll - wrap multiple elements
+        $('#conteudo5, #conteudo6').wrapAll('<div>');
+
+        //.empty - Remove the content of selected element
+        $('#conteudo4, #conteudo5, #conteudo6').empty();
+
+        //.remove - Remove an element
+        $('#conteudo2').prev().remove();
+    </script>
+</body>
+
+</html>

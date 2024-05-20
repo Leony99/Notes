@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+
+    /*Items in a row / main-axis = horizontal / cross-axis = vertical*/
+    flex-direction: row;
+    /*Items in a column / main-axis = vertical / cross-axis = horizontal*/
+    flex-direction: column;
+
+    /*Aligns the flexible container's items
+    when the items do not use all available space on the main-axis.*/
+    justify-content: flex-start;
+    justify-items: center;
+
+    /*Aligns the flexible container's items
+    when the items do not use all available space on the cross-axis.*/
+    align-content: flex-start;
+    align-items: center;
+
+    /*Does not allow line break*/
+    flex-flow: nowrap;
+    /*Allow line break as soon as one of the items does not fit on it*/
+    flex-flow: wrap;
+}
+
+.container #item-1 {
+    /*Defines the order of the item*/
+    order: 1;
+
+    /*Sets the priority for element size in main-axis*/
+    flex: 1;
+
+    /*Sets the priority for element size in cross-axis*/
+    flex-basis: 1;
+
+    /*Aligns just this item based in the main-axis*/
+    justify-self: flex-end;
+
+    /*Aligns just this item based in the cross-axis*/
+    align-self: flex-end;
+}

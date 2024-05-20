@@ -1,0 +1,29 @@
+/*Tag selector*/
+body {
+    background-color: dimgray;
+}
+
+/*ID selector*/
+#IdName {
+    color: green;
+}
+
+/*Class selector*/
+.className {
+    color: blue;
+}
+
+/*Combinator selector*/
+.className p{
+    color: black;
+}
+
+/*Group selector*/
+h1, h2, h3 {
+    color: blueviolet;
+}
+
+/*All elements selector*/
+* {
+    background-color: black;
+}

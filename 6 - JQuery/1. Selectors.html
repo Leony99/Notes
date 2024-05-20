@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div>
+        <ul id='feira'>
+            <li>Arroz</li>
+            <li wm-obrigatorio>Feijão</li>
+            <li class='opcional'>Carne</li>
+            <li class='opcional'>Ovo</li>
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <p>Parágrafo
+            <span class='negrito'>span</span>
+        </p>
+    </div>
+    <hr>
+    <form>
+        <input type='text' name='texto'>
+        <input type='password' name='senha'>
+        <input type='checkbox' name='check1'>
+        <input type='radio' name='radio1'>
+        <input type='file' name='arquivo'>
+    </form>
+    <hr>
+
+    <script>
+        //Tag selector
+        console.log($('li'))
+        //Attribute selector
+        console.log($('[wm-obrigatorio]'))
+        console.log($('li[wm-obrigatorio]'))
+        console.log($('li[class="opcional"]'))
+        //Id selector
+        console.log($('#feira'))
+        //Class selector
+        console.log($('.negrito'))
+        //Combinator selector
+        console.log($('div p span'))
+        //All elements inside 'ul'
+        console.log($('ul *'))
+
+        //First/last element inside 'li'
+        console.log($('li:first'))
+        console.log($('li:last'))
+        //Odd index elements inside 'li'
+        console.log($('li:odd'))
+        //Greater Than index 'x' elements inside 'li'
+        console.log($('li:gt(1)'))
+
+        //---List selectors---
+        //Elements that contais "r" in list items
+        console.log($('li:contains("r")'))
+
+        //---Form selectors---
+        console.log($('form :text'))
+        console.log($('form :password'))
+        console.log($('form :checkbox'))
+        console.log($('form :radio'))
+        console.log($('form :file'))
+        
+        //---Function selectors---
+        console.log($('form :password').prev())
+        console.log($('form :password').next())
+        //Parent element
+        console.log($('form :password').parent())
+        //All parents chain
+        console.log($('form :password').parents())
+        //All parents chain until selected element
+        console.log($('form :password').parentsUntil($('html')))
+        //All childrens
+        console.log($('form').children())
+        //All elements inside
+        console.log($('body').find($('.opcional')))
+    </script>
+</body>
+
+</html>
