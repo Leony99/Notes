@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body style="width: 100vw; height: 100vh; margin: 0; padding: 0;">
+    <button id="hide">Hide</button>
+    <button id="fade">Fade</button>
+    <button id="slide">slide</button>
+    <div style="position: absolute; width: 100px; height: 50px; background-color: red;"></div>
+    <script>
+        //----------.animate - Animate element----------
+        //.animate({property: value}, duration, callback)
+        $('div').animate({ height: '+=50'}, 1000, function() {
+            console.log('Growth completed');
+        });
+        $('div').animate({ top: '+=50', left: '+=50'}, 1000, function() {
+            console.log('Movement completed');
+        });
+
+        //----------JQuery animations----------
+        //.hide/.toggle - Hide/show element
+        $('#hide').on('click', function() {
+            $('div').hide(1000).show(1000);
+            $('div').toggle(1000).toggle(1000);
+        });
+
+        //.fade/.fadeToggle - Fade out/in element
+        $('#fade').on('click', function() {
+            $('div').fadeOut(1000).fadeIn(1000);
+            $('div').fadeToggle(1000).fadeToggle(1000);
+        });
+
+        //.slide/.slideToggle - Slide up/down element
+        $('#slide').on('click', function() {
+            $('div').slideUp(1000).slideDown(1000);
+            $('div').slideToggle(1000).slideToggle(1000);
+        });
+    </script>
+</body>
+
+</html>

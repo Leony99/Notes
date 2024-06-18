@@ -21,7 +21,8 @@ div {
     border: 3px solid green;
     /*Padding - Spacing inside the section*/
     padding: 15px;
-    /*Box-sizing - Allows us to include the padding and border in an element's total width and height.*/
+    /*Box-sizing - Defines if the padding and border will count in the width and height.*/
+    box-sizing: content-box;
     box-sizing: border-box;
 
     /*Colors*/

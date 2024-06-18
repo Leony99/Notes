@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id='div1'></div>
+    <div id='div2'></div>
+    <div id='div3'></div>
+
+    <script>
+        //----------.css - CSS manipulation----------
+        //Add property if no exists
+        $('div').css('background-color', 'red');
+        $('div').css({'width': '32px', 'height': '32px'});
+        //Change property if exists
+        $('#div2').css('background-color', 'green');
+        $('#div2').css('font-size', function() {
+            return '32px';
+        });
+        //Get property value
+        $('#div3').css('font-family');
+    </script>
+</body>
+
+</html>

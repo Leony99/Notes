@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id='div1'></div>
+    <div id='div2'></div>
+    <div id='div3'></div>
+
+    <script>
+        //----------.attr - Attribute manipulation----------
+        //Add attribute if no exists
+        $('div').attr('attr1', 'attr');
+        $('div').attr({attr2: 'attr', attr3: 'attr'})
+        //Change attribute if exists
+        $('#div1').attr('attr1', 'changed');
+        //Remove attribute
+        $('#div1').removeAttr('attr2').removeAttr('attr3');
+        //Get attribute value
+        $('#div1').attr('attr1');
+
+        //----------Class attribute----------
+        //Add class
+        $('#div2').addClass('class');
+        $('#div3').addClass(['class', 'class2']);
+        //Remove class
+        $('#div3').removeClass('class2');
+        //Add or remove class
+        $('#div3').toggleClass('class');
+        //Determine if element has class
+        $('#div2').hasClass('class');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body style="width: 100vw; height: 100vh; margin: 0; padding: 0;">
+    <input type="text">
+    <script>
+        //----------.on/.off - Event binding/unbinding----------
+        //click - When the mouse pointer clicks inside the element
+        $('body').on('click', function() {
+            console.log('click');
+        });
+
+        //dblclick - When the user double clicks inside the element
+        $('body').on('dblclick', function() {
+            console.log('dblclick');
+        });
+
+        //mousemove - When the mouse pointer moves inside the element
+        $('body').on('mousemove', function(e) {
+            console.log(e.pageX, e.pageY);
+        });
+
+        //mouseover - When the mouse pointer enters the element
+        $('input').on('mouseover', function() {
+            $('body').off('click');
+            $('body').off('dblclick');
+            $('body').off('mousemove');
+        });
+
+        //mouseleave - When the mouse pointer leaves the element
+        $('input').on('mouseleave', function() {
+            $('body').on('click', function() {
+                console.log('click');
+            });
+            $('body').on('dblclick', function() {
+                console.log('dblclick');
+            });
+            $('body').on('mousemove', function(e) {
+                console.log(e.pageX, e.pageY);
+            });
+        });
+
+        //Combination
+        $('input').on('mouseover mouseleave', function() {
+            console.log('mouse over/mouse leave');
+        });
+
+        //keydown - When the user presses a key
+        $('input').on('keydown', function(e) {
+            console.log('keydown = ', e.key);
+        });
+
+        //keyup - When the user releases a key
+        $('input').on('keyup', function(e) {
+            console.log('keyup = ', e.key);
+        });
+
+        //resize - When the element is resized
+        $(window).on('resize', function() {
+            console.log('width = ', $(window).width(), ' / height = ', $(window).height());
+        });
+
+        //----------.one - Event 1 time only----------
+        $('body').one('mousemove', function() {
+            console.log('body');
+        });
+    </script>
+</body>
+
+</html>
