@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body style="width: 100vw; height: 100vh; margin: 0; padding: 0;">
+    
+    <div id="interpretationDiv">
+        {‌{ 1 + 2 }}
+        /
+        {‌{ 3 ** 3 }}
+        /
+        {‌{ console.log('Worked!') }}
+        /
+        {‌{ (function() { return 'Cool!!!' })() }}
+    </div>
+
+    <script>
+        //IIFE Function - Here the $ will be jQuery, even if it is outside the $ point to another object
+        (function($) {
+            //Compute a string as a javascript expression
+            $.fn.interpretationPlugin = function() {
+                const content = $(this).html();
+                const expressionsWithBrackets = content.match(/{‌{(.*?)}}/g);
+                const expressions = expressionsWithBrackets.map(text => text.substring(3, text.length - 2));
+                const results = expressions.map(e => eval(e));
+                
+                let finalContent = content;
+                for (let i = 0; i < results.length; i++) {
+                    finalContent = finalContent.replace(expressionsWithBrackets[i], results[i]);
+                }
+                $(this).html(finalContent);
+
+                //Make the plugin chainable(you can chain another function after this one)
+                return this;
+            }
+        })(jQuery)
+
+        $('#interpretationDiv').interpretationPlugin();
+    </script>
+</body>
+
+</html>
