@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href content-link="./content/content1.html" destiny=".page">Content 1</a>
+        <a href content-link="./content/content2.html" destiny=".page">Content 2</a>
+    </nav>
+    <div class="page"></div>
+
+    <script>
+        function ajaxNavigation(contentLink, destiny, push = true) {
+            if (!contentLink || !destiny) return;
+            const element = document.querySelector(destiny);
+
+            //Fetch the content from the given URL (contentLink)
+            fetch(contentLink)
+                .then(function(response) {
+                    //Convert the response to text
+                    return response.text();
+                }).then(function(html) {
+                    //Set the inner HTML of the destination element to the fetched content
+                    element.innerHTML = html;
+                })
+        }
+
+        document.querySelectorAll('[content-link]').forEach(element => {
+            const contentLink = element.getAttribute('content-link');
+            const destiny = element.getAttribute('destiny');
+            
+            element.onclick = function(e){
+                e.preventDefault();
+                ajaxNavigation(contentLink, destiny);
+            }
+        });
+    </script>
+</body>
+</html>
